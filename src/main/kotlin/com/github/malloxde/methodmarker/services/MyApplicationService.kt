@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.malloxde.methodmarker.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.malloxde.methodmarker.MyBundle
 
 class MyApplicationService {
 
