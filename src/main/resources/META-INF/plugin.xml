@@ -4,15 +4,32 @@
     <name>method-marker</name>
     <vendor>mallox-de</vendor>
 
+    <!--
+    <depends>com.intellij.modules.all</depends>
+    -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.java</depends>
+    <depends>org.jetbrains.kotlin</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+        <!--
         <applicationService serviceImplementation="com.github.malloxde.methodmarker.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.malloxde.methodmarker.services.MyProjectService"/>
+        -->
+        <codeInsight.lineMarkerProvider
+                language="JAVA"
+                implementationClass="com.github.malloxde.methodmarker.daemon.MyLineMarkerProvider"/>
+        <applicationConfigurable parentId="tools" instance="com.github.malloxde.methodmarker.settings.AppSettingsConfigurable"
+                                 id="com.github.malloxde.methodmarker.settings.AppSettingsState.settings.AppSettingsConfigurable"
+                                 displayName="Methode Marker: Application Settings"/>
+        <applicationService serviceImplementation="com.github.malloxde.methodmarker.settings.AppSettingsState"/>
     </extensions>
 
     <applicationListeners>
+        <!--
         <listener class="com.github.malloxde.methodmarker.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
+                  -->
     </applicationListeners>
 </idea-plugin>
